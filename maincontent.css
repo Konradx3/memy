@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.main_content {
+  overflow: auto;
+  width: 65%;
+  display: block;
+  margin: auto;
+}
+.main_content .oddzielnik {
+  height: 30px;
+  width: 100%;
+}
+.main_content .content {
+  height: 100%;
+  width: 70%;
+  display: block;
+  float: left;
+}
+.main_content .content .post {
+  height: auto;
+  width: 80%;
+  margin: auto;
+}
+.rejestracja_box {
+  text-align: center;
+  color: rgb(245, 157, 99);
+  font-size: 20px;
+  background-color: rgb(6, 65, 65);
+  width: 98%;
+  height: auto;
+  border-radius: 5px;
+}
+form {
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+input[type="submit"] {
+  background: white;
+  font-weight: bolder;
+  border: none;
+  color: black;
+  padding: 13px;
+  width: auto;
+}
+h3 {
+  height: 30px;
+  width: 100%;
+  color: white;
+  padding: 6px 15px;
+  box-sizing: border-box;
+}
+.main_content .right_side_bar {
+  height: 100%;
+  width: 30%;
+  display: block;
+  float: left;
+}
+.main_content .right_side_bar .logowanie {
+  text-align: center;
+  color: rgb(245, 157, 99);
+  font-size: 20px;
+  background-color: rgb(6, 65, 65);
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+}
+.main_content .right_side_bar .dodatek {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.main_content .content .upload {
+  display: block;
+  margin: auto;
+  text-align: center;
+  color: rgb(245, 157, 99);
+  background-color: rgb(6, 65, 65);
+  height: 100%;
+  width: 80%;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.main_content .right_side_bar .panel_uzytkownika {
+  text-align: center;
+  color: rgb(245, 157, 99);
+  font-size: 20px;
+  background-color: rgb(6, 65, 65);
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+}

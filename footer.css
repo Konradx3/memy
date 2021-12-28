@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.footer {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding: 40px 0;
+    box-sizing: border-box;
+    background-color: rgb(10, 10, 10);
+}
+.inner_footer {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    height: 100%;
+}
+.inner_footer .footer_third {
+    width: calc(21.6666666667 - 20px);
+    margin-right: 5%;
+    float: right;
+    height: 100%;
+}
+.inner_footer .footer_third:lasat-child {
+    margin-right: 0;
+}
+.inner_footer .footer_third h1 {
+    font-size: 23px;
+    color: white;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.inner_footer .footer_third a {
+    font-size: 15px;
+    color: white;
+    display: block;
+    width: 100%;
+    padding-bottom: 8px;
+}
