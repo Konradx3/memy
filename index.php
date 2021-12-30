@@ -42,10 +42,29 @@
                  <!--   <a href="najlepsze.php"><li>Najlepsze</li></a> -->
                     <a href="video.php">Video</a>
                     <a href="upload.php">Dodaj obrazek</a>
+                    <a class="show-modal">Zaloguj</a>
                 </nav>
         </div>
         <!-- Koniec nagłówka -->
 
+        <!-- log-in panel -->
+        <div class="modal-background">    
+            <div class="login-modal">
+                <form action="login.php" method="post" class="login">
+                    <p>Zaloguj się</p>
+                    <input type="text" name="login" class="login__input login__input--login"/>
+                    <input type="password" name="haslo" class="login__input login__input--password"/>
+                    <button type="submit">Zaloguj się</button>
+                    <input type="button" onclick="location.href='rejestracja.php'" value="Zarejestruj się" />
+                </form>
+                <?php 
+                    if(isset($_SESSION['blad'])) echo $_SESSION['blad'];
+                    unset($_SESSION['blad']);
+                    ?>
+        </div>
+    </div>
+        
+        
         <!-- Główna zawartość strony -->
 
         <div class="main_content">
@@ -136,7 +155,7 @@
             <div class="right_side_bar">
 
                 <div class="dodatki">
-                    <div class="logowanie">
+                    <!-- <div class="logowanie login login__modal">
                         <form action="login.php" method="post">
                             <br />
                             Login: <br /><input type="text" name="login"/><br/><br />
@@ -149,7 +168,7 @@
                         if(isset($_SESSION['blad'])) echo $_SESSION['blad'];
                         unset($_SESSION['blad']);
                         ?>
-                    </div>
+                    </div> -->
                     <div class="dodatek">
                        <?php
                             echo '<img src="banery/mem2.jpg">';
@@ -199,6 +218,6 @@
         </div>
 
         <!-- Koniec stopki -->
-
+        <script src="script.js"></script>
     </body>
 </html>
