@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 23 Gru 2021, 19:57
+-- Czas generowania: 30 Gru 2021, 23:46
 -- Wersja serwera: 10.4.20-MariaDB
 -- Wersja PHP: 8.0.9
 
@@ -78,6 +78,35 @@ INSERT INTO `konta` (`id`, `user`, `pass`, `email`) VALUES
 (5, 'Pornosy', '$2y$10$3182GP5V4p7W6auucvvjw.RlsiXEzya.FJfJcAFi5KsMgvYhkDuZe', 'pornosy@gmail.com'),
 (6, 'Gosia123', '$2y$10$IJBZXsISQUQbuhNIE0U32Ock7fqzG6.cC.nkps.YsHP.aApEa2frO', 'bebok@gmail.com');
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `video`
+--
+
+CREATE TABLE `video` (
+  `id` int(11) NOT NULL,
+  `user` text NOT NULL,
+  `opis` text NOT NULL,
+  `pelnyAdres` text NOT NULL,
+  `nowyAdres` text NOT NULL,
+  `addTime` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `video`
+--
+
+INSERT INTO `video` (`id`, `user`, `opis`, `pelnyAdres`, `nowyAdres`, `addTime`) VALUES
+(4, 'Konasx3', 'pierwszy filmik', 'https://www.youtube.com/watch?v=a-7Li0QK8Ok', 'a-7Li0QK8Ok', '2021-12-30 20:58:36'),
+(5, 'Konasx3', 'film 2', 'https://www.youtube.com/watch?v=CgZDttfdVAc&list=RDCgZDttfdVAc&start_radio=1', 'CgZDttfdVAc&list=RDCgZDttfdVAc&start_radio=1', '2021-12-30 22:15:03'),
+(6, 'Konasx3', 'film3', 'https://www.youtube.com/watch?v=Wc6F5tPaHtA', 'Wc6F5tPaHtA', '2021-12-30 22:15:16'),
+(7, 'Konasx3', 'film4', 'https://www.youtube.com/watch?v=11pIq5-Nm54', '11pIq5-Nm54', '2021-12-30 22:15:27'),
+(8, 'Konasx3', 'film5', 'https://www.youtube.com/watch?v=xiIHDg1pRIg', 'xiIHDg1pRIg', '2021-12-30 22:15:46'),
+(9, 'Konasx3', 'film 6', 'https://www.youtube.com/watch?v=VDT-Ku_pY7U', 'VDT-Ku_pY7U', '2021-12-30 22:16:05'),
+(10, 'Konasx3', 'film 7', 'https://www.youtube.com/watch?v=jRmdssX9l2g', 'jRmdssX9l2g', '2021-12-30 22:16:21'),
+(11, 'Konasx3', 'pyk', 'https://www.youtube.com/watch?v=dF0P-gDVZuQ', 'dF0P-gDVZuQ', '2021-12-30 22:21:32');
+
 --
 -- Indeksy dla zrzutów tabel
 --
@@ -95,6 +124,12 @@ ALTER TABLE `konta`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeksy dla tabeli `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
@@ -102,13 +137,19 @@ ALTER TABLE `konta`
 -- AUTO_INCREMENT dla tabeli `grafiki`
 --
 ALTER TABLE `grafiki`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT dla tabeli `konta`
 --
 ALTER TABLE `konta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT dla tabeli `video`
+--
+ALTER TABLE `video`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

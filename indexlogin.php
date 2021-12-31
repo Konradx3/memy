@@ -40,6 +40,7 @@
                      <!--   <a href="najlepsze.php"><li>Najlepsze</li></a> -->
                         <a href="video.php"><li>Video</li></a>
                         <a href="upload.php"><li>Dodaj obrazek</li></a>
+                        <a href="uploadvid.php"><li>Dodaj Video</li></a>
                     </ul>
             </div>
         </div>

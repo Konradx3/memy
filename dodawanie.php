@@ -51,6 +51,7 @@ if(isset($_POST['submit'])){
             }
 
     }else{
+      $_SESSION['zapis'] = '<span>Uzupełnij poprawnie wszystkie pola.</span>';
       header('Location:upload.php');
     }
  }else{
