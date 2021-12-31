@@ -47,7 +47,61 @@
             <section class="content">
                 <div class="oddzielnik"></div>
                 <div class="posty"> 
-                    <p class="komunikat">Nad tym działem trwają jeszcze prace techniczne.</p>
+                <?php
+                                $results_per_page = 5;
+                                $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+
+                                $sql="SELECT user, opis, nowyAdres ,addTime FROM video ORDER BY `video`.`addTime` DESC";
+                                $result = mysqli_query($polaczenie, $sql);
+                                $number_of_results = mysqli_num_rows($result);
+                                
+                                $number_of_pages = ceil($number_of_results/$results_per_page);
+                                
+                                if (!isset($_GET['page'])) {
+                                    $page = 1;
+                                  } else {
+                                    $page = $_GET['page'];
+                                  }
+                                
+                                  $this_page_first_result = ($page-1)*$results_per_page;
+                                  
+                                  $adres = $polaczenie->query("SELECT user, opis, nowyAdres ,addTime FROM video ORDER BY `video`.`addTime` DESC LIMIT $this_page_first_result, $results_per_page");
+                    
+                                  while($res = mysqli_fetch_array($adres)){
+                                      $opis = $res[1];
+                                      $nowyAdres = $res[2];
+                                      $dataczas = $res[3];
+                                      $embed = 'http://youtube.com/embed/'.$nowyAdres;
+                                      ?><article>
+                                      <div class="post">
+                                      <div class="opis"><?php echo $opis; ?>
+                                      <div class="dodanie" style="width: 15%; height: auto; float: right; font-size: 15px; text-align: center;"><?php echo $dataczas;?></div>
+                                      </div>
+                                      <div class="oddzielnikmaly"></div>
+                                          <iframe src='<?php echo $embed; ?>' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                      </div>
+                                      <div class="oddzielnik"></div>
+                                      </article><?php
+                                  }
+                                  ?>
+                                  <div class="center">
+                                  <ul class="pagination">
+                                  <li><a href="video.php?page=1">Pierwsza</a></li>
+
+                                  <?php 
+                                  for( $i = 1; $i <= $number_of_pages; $i++ ) {
+
+                                    $bold = ( $i == $page ) ? 'style="color: rgb(245, 157, 99); background-color: rgb(6, 65, 65);"' : '';
+                                    if( t1( $i, ( $page -3 ), ( $page + 3 ) ) ) {
+                            
+                                        echo '<li><a ' . $bold . ' href="video.php?page=' . $i . '">' . $i . '</a></li>';
+                            
+                                    }
+                                }
+                                ?> 
+                                  <li><a href="video.php?page=<?php echo $number_of_pages; ?>">Ostatnia</a></li>
+                              </ul>
+                                </div>
                 </div>
             <div class="oddzielnik"></div>
             </section>
