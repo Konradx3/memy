@@ -12,8 +12,9 @@ const openModal = function () {
   modalBackground.classList.add("bg-active");
 };
 
-const closeModal = function () {
-  modalBackground.classList.remove("bg-active");
+const closeModal = function (e) {
+  if (e.target === e.currentTarget)
+    modalBackground.classList.remove("bg-active");
 };
 
 for (let i of btnsOpenModal) {

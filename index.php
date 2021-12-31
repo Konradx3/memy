@@ -21,8 +21,8 @@
         <!-- słowa kluczowe -->
         <meta name="Keywords" content="klucz1, klucz2, klucz3" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <!-- <link rel="stylesheet" type="text/css" href="maincontent.css"> -->
         <link rel="stylesheet" type="text/css" href="errory.css">       
