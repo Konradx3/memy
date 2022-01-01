@@ -1,4 +1,11 @@
-* {
+*:before,
+*:after {
+  z-index: -1;
+}
+
+html *,
+html *:before,
+html *:after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -6,6 +13,8 @@
   font-family: "Righteous", cursive;
   font-weight: 200;
   text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.5s ease-in-out;
 }
 
 .hidden {
@@ -26,7 +35,7 @@ body {
   height: 50px;
   box-sizing: border-box;
   background-color: #131618;
-  border-bottom: 4px solid #004d40;
+  border-bottom: 4px solid #fb8c00;
 }
 
 .header .logo_container h1 {
@@ -41,27 +50,45 @@ body {
   align-items: stretch;
   height: 100%;
   gap: 20px;
+  position: relative;
 }
 
 .header .navigation a {
   color: #fff;
   letter-spacing: 2px;
-  display: inline-block;
+  display: block;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
   padding: 10px 20px;
   cursor: pointer;
   text-align: center;
   margin-bottom: 0;
+  z-index: 1;
 }
 
-.header .navigation a:link,
-.header .navigation a:visited {
+.header .navigation a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to top, #fb8c00, #ffbd45);
+  transform: translateY(100%);
+}
+
+.header .navigation a:hover:before {
+  transform: translateY(0);
+}
+
+.header .navigation a:hover {
+  color: #131618;
+}
+
+.header a:link,
+.header a:visited {
   background-color: #131618;
-}
-
-.header .navigation a:hover,
-.header .navigation a:active {
-  background-color: #004d40;
 }
 
 .login-modal {
@@ -70,13 +97,11 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20%;
-  padding: 6rem;
+  padding: 3rem;
   border: 4px solid #fb8c00;
   border-radius: 15px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
-  transition: all 0.8s;
 }
 
 .login {
@@ -85,22 +110,57 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 200px;
+  color: #ffbd45;
+}
+
+.login p {
+  font-size: 32px;
+  letter-spacing: 3px;
 }
 
 .login__input {
   font-size: 16px;
   text-align: center;
   justify-content: center;
-  background-color: #d0d0d0;
-  border: none;
+  background-color: #495057;
+  border: 3px solid #fb8c00;
   border-radius: 10px;
   width: 100%;
   height: 1.8rem;
-  transition: all 1.3s;
+  transition: all 0.5s;
+  outline: none;
+}
+
+.login__input:focus {
+  box-shadow: 0 0 1rem #c25e00;
+  transition: all 0.5s;
 }
 
 .login__input--login {
   color: green;
+}
+
+.login__input::placeholder {
+  color: #212529;
+}
+
+.login__btn {
+  width: 200px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fb8c00;
+  border-radius: 5px;
+  background-color: #212529;
+  cursor: pointer;
+  color: inherit;
+  transition: all 0.5s;
+}
+
+.login__btn:hover, .login__btn:active {
+  box-shadow: 0 0 1rem #c25e00;
+  transition: all 0.5s;
 }
 
 .modal-background {
@@ -112,7 +172,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(3px);
   z-index: 5;
-  transition: all 1s;
+  transition: all 0.5s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,7 +266,7 @@ body {
 
 .btn-icon-plus:hover,
 .btn-icon-plus:active {
-  stroke: #39796b;
+  stroke: #ffbd45;
 }
 
 .btn-icon-minus:hover,

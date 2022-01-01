@@ -21,8 +21,8 @@
         <!-- słowa kluczowe -->
         <meta name="Keywords" content="klucz1, klucz2, klucz3" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <!-- <link rel="stylesheet" type="text/css" href="maincontent.css"> -->
         <link rel="stylesheet" type="text/css" href="errory.css">       
@@ -52,10 +52,10 @@
             <div class="login-modal">
                 <form action="login.php" method="post" class="login">
                     <p>Zaloguj się</p>
-                    <input type="text" name="login" class="login__input login__input--login"/>
-                    <input type="password" name="haslo" class="login__input login__input--password"/>
-                    <button type="submit">Zaloguj się</button>
-                    <input type="button" onclick="location.href='rejestracja.php'" value="Zarejestruj się" />
+                    <input type="text" name="login" class="login__input login__input--login" placeholder="Login"/>
+                    <input type="password" name="haslo" class="login__input login__input--password" placeholder="Hasło"/>
+                    <button type="submit" class="login__btn login__btn--login">Zaloguj się</button>
+                    <input type="button" onclick="location.href='rejestracja.php'" value="Zarejestruj się" class="login__btn"/>
                 </form>
                 <?php 
                     if(isset($_SESSION['blad'])) echo $_SESSION['blad'];

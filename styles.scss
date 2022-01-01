@@ -1,6 +1,10 @@
-$main-color: #004d40;
-$main-color-dark: #00251a;
-$main-color-light: #39796b;
+// $main-color: #004d40;
+// $main-color-dark: #00251a;
+// $main-color-light: #39796b;
+
+$main-color: #fb8c00;
+$main-color-dark: #c25e00;
+$main-color-light: #ffbd45;
 
 $secondary-color: #fb8c00;
 $secondary-color-dark: #c25e00;
@@ -14,7 +18,14 @@ $text-white: rgb(236, 236, 236);
 
 $content-width: 800px;
 
-* {
+*:before,
+*:after {
+  z-index: -1;
+}
+
+html *,
+html *:before,
+html *:after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -22,6 +33,9 @@ $content-width: 800px;
   font-family: "Righteous", cursive;
   font-weight: 200;
   text-decoration: none;
+
+  box-sizing: border-box;
+  transition: 0.5s ease-in-out;
 }
 
 .hidden {
@@ -56,6 +70,7 @@ body {
   width: 100%;
   height: 50px;
   box-sizing: border-box;
+
   background-color: $background-color-dark;
   border-bottom: 4px solid $main-color;
 
@@ -71,32 +86,58 @@ body {
     // width: 400px;
     height: 100%;
     gap: 20px;
+
+    position: relative;
     a {
       color: #fff;
       letter-spacing: 2px;
-      display: inline-block;
+      display: block;
       box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
       padding: 10px 20px;
       cursor: pointer;
       text-align: center;
       margin-bottom: 0;
-    }
+      z-index: 1;
 
-    a:link,
-    a:visited {
-      background-color: $background-color-dark;
-    }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(
+          to top,
+          $main-color,
+          $main-color-light
+        );
+        transform: translateY(100%);
+      }
 
-    a:hover,
-    a:active {
-      background-color: $main-color;
+      &:hover:before {
+        transform: translateY(0);
+      }
+
+      &:hover {
+        color: $background-color-dark;
+      }
     }
   }
+
+  a:link,
+  a:visited {
+    background-color: $background-color-dark;
+  }
+
+  // a:hover,
+  // a:active {
+  //   background-color: $main-color;
+  // }
 }
 
 //LOGIN PANEL
-.show-modal {
-}
 
 .login-modal {
   background-color: $background-color;
@@ -105,17 +146,12 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20%;
 
-  padding: 6rem;
+  padding: 3rem;
   border: 4px solid $secondary-color;
   border-radius: 15px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
-
-  //creating fade in.out animation
-  // opacity: 0;
-  transition: all 0.8s;
 }
 
 .login {
@@ -124,19 +160,55 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 200px;
+  color: $secondary-color-light;
+
+  p {
+    font-size: 32px;
+    letter-spacing: 3px;
+  }
 
   &__input {
     font-size: 16px;
     text-align: center;
     justify-content: center;
-    background-color: rgb(208, 208, 208);
-    border: none;
+    background-color: $background-color-light;
+    border: 3px solid $secondary-color;
     border-radius: 10px;
     width: 100%;
     height: 1.8rem;
-    transition: all 1.3s;
+    transition: all 0.5s;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 1rem $secondary-color-dark;
+      transition: all 0.5s;
+    }
     &--login {
       color: green;
+    }
+
+    &::placeholder {
+      color: $background-color;
+    }
+  }
+  &__btn {
+    width: 200px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid $secondary-color;
+    border-radius: 5px;
+    background-color: $background-color;
+    cursor: pointer;
+    color: inherit;
+
+    transition: all 0.5s;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 0 1rem $secondary-color-dark;
+      transition: all 0.5s;
     }
   }
 }
@@ -151,7 +223,7 @@ body {
   backdrop-filter: blur(3px);
   z-index: 5;
   // opacity: 0;
-  transition: all 1s;
+  transition: all 0.5s;
   display: flex;
   align-items: center;
   justify-content: center;
