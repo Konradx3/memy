@@ -104,6 +104,24 @@ body {
   z-index: 10;
 }
 
+.login-modal__btn {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  transform: translate(-50%, 50%);
+  cursor: pointer;
+}
+
+.login-modal__btn--exit {
+  width: 100%;
+  height: 100%;
+  stroke: #ffbd45;
+}
+
 .login {
   display: flex;
   align-items: center;
@@ -113,9 +131,16 @@ body {
   color: #ffbd45;
 }
 
-.login p {
+.login h2 {
   font-size: 32px;
   letter-spacing: 3px;
+}
+
+.login p {
+  box-sizing: border-box;
+  padding-bottom: 6px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
 }
 
 .login__input {
@@ -137,7 +162,7 @@ body {
 }
 
 .login__input--login {
-  color: green;
+  color: #fb8c00;
 }
 
 .login__input::placeholder {
@@ -159,7 +184,7 @@ body {
 }
 
 .login__btn:hover, .login__btn:active {
-  box-shadow: 0 0 1rem #c25e00;
+  box-shadow: 0 0 1rem #00251a;
   transition: all 0.5s;
 }
 
@@ -212,7 +237,7 @@ body {
   background-color: #131618;
 }
 
-.post-description {
+.post__description {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -227,7 +252,7 @@ body {
   letter-spacing: 2px;
 }
 
-.post-description .added {
+.post__description--added {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: middle;
@@ -238,15 +263,30 @@ body {
   letter-spacing: 2px;
 }
 
-.like_bar {
+.post .like-bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.like_bar p {
+.post .like-bar p {
   padding-left: 10px;
   font-size: 14px;
+}
+
+.post .like-bar__btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   color: #fff;
+  font-size: 12px;
+}
+
+.post .like-bar__user {
+  padding-left: 10px;
+  font-size: 12px;
+  color: #495057;
 }
 
 .btn {
@@ -262,22 +302,29 @@ body {
 
 .btn-icon {
   stroke: #fff;
+  transition: 0s linear;
 }
 
 .btn-icon-plus:hover,
 .btn-icon-plus:active {
-  stroke: #ffbd45;
+  stroke: #82c91e;
 }
 
 .btn-icon-minus:hover,
 .btn-icon-minus:active {
-  stroke: #f7290d;
+  stroke: #f03e3e;
 }
 
 @media screen and (max-width: 888px) {
   .main_content {
     width: 90%;
     flex-direction: column;
+  }
+  .content {
+    width: 100%;
+  }
+  .right_side_bar {
+    width: 100%;
   }
 }
 

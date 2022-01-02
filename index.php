@@ -24,10 +24,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">
-        <!-- <link rel="stylesheet" type="text/css" href="maincontent.css"> -->
         <link rel="stylesheet" type="text/css" href="errory.css">       
         <link rel="stylesheet" type="text/css" href="paginacja.css">
-        <!-- <link rel="stylesheet" type="text/css" href="posty.css"> -->
         <title>HYC o podłoge</title>
     </head>
     <body>
@@ -51,18 +49,33 @@
         <div class="modal-background">    
             <div class="login-modal">
                 <form action="login.php" method="post" class="login">
-                    <p>Zaloguj się</p>
+                    <h2>Zaloguj się</h2>
                     <input type="text" name="login" class="login__input login__input--login" placeholder="Login"/>
                     <input type="password" name="haslo" class="login__input login__input--password" placeholder="Hasło"/>
                     <button type="submit" class="login__btn login__btn--login">Zaloguj się</button>
+                    <div>
+                    <p>Nie masz jeszcze konta?</p>
                     <input type="button" onclick="location.href='rejestracja.php'" value="Zarejestruj się" class="login__btn"/>
+                    </div>
                 </form>
                 <?php 
                     if(isset($_SESSION['blad'])) echo $_SESSION['blad'];
                     unset($_SESSION['blad']);
                     ?>
+                <div class="login-modal__btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                    class="login-modal__btn--exit" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor">
+                    <path stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>
+            </div>
         </div>
-    </div>
         
         
         <!-- Główna zawartość strony -->
@@ -88,21 +101,23 @@
                                 
                                   $this_page_first_result = ($page-1)*$results_per_page;
                                   
-                                  $adres = $polaczenie->query("SELECT adresy, rozszerzenie, opis, addTime FROM grafiki ORDER BY `grafiki`.`addTime` DESC LIMIT $this_page_first_result, $results_per_page");
+                                  $adres = $polaczenie->query("SELECT adresy, rozszerzenie, opis, addTime, user FROM grafiki ORDER BY `grafiki`.`addTime` DESC LIMIT $this_page_first_result, $results_per_page");
                     
                                   while($res = mysqli_fetch_array($adres)){
                                       $opis = $res[2];
                                       $wysw = 'grafiki/'.$res[0].'.'.$res[1];
                                       $dataczas = $res[3];
+                                      $user =$res[4]
                                       ?><article>
                                       <div class="post">
-                                        <div class="post-description"><?php echo $opis; ?>
-                                            <div class="added"><?php echo $dataczas;?></div>
+                                        <div class="post__description"><?php echo $opis; ?>
+                                            <div class="post__description--added"><?php echo $dataczas;?></div>
                                         </div>
                                       <!-- <div class="oddzielnikmaly"></div> -->
                                       <div class="obrazek>"><?php echo '<img src="'.$wysw.'">'; ?></div>
 
-                                      <div class="like_bar">
+                                      <div class="like-bar">
+                                          <div class="like-bar__btns">
                                         <button class='btn'>
                                             <svg xmlns="http://www.w3.org/2000/svg" 
                                             class="btn-icon btn-icon-plus" 
@@ -125,7 +140,11 @@
                                             d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
                                         </button>
-                                        <p>Tutaj suma + i -</p>
+                                            <p>Tutaj suma + i -</p>
+                                        </div>
+                                        <div class="like-bar__user">
+                                            Dodano przez: <?php echo $user;?>
+                                        </div>
                                       </div>
 
                                       </article><?php
