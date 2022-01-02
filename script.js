@@ -1,13 +1,12 @@
 "use strict";
 
+// DECLARATION
 const modalBackground = document.querySelector(".modal-background");
 const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".close-modal");
+const btnCloseModal = document.querySelector(".login-modal__btn--exit");
 const btnsOpenModal = document.querySelectorAll(".show-modal");
-console.log(btnsOpenModal);
 
-console.log(btnsOpenModal);
-
+// FUNCTIONS
 const openModal = function () {
   modalBackground.classList.add("bg-active");
 };
@@ -17,11 +16,13 @@ const closeModal = function (e) {
     modalBackground.classList.remove("bg-active");
 };
 
+// EVENT LISTENERS
+
 for (let i of btnsOpenModal) {
   i.addEventListener("click", openModal);
 }
 
 modalBackground.addEventListener("click", closeModal);
-// for (let i of btnsCloseModal) {
-//   i.addEventListener("click", closeModal);
-// }
+btnCloseModal.addEventListener("click", function () {
+  modalBackground.classList.remove("bg-active");
+});

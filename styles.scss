@@ -6,9 +6,9 @@ $main-color: #fb8c00;
 $main-color-dark: #c25e00;
 $main-color-light: #ffbd45;
 
-$secondary-color: #fb8c00;
-$secondary-color-dark: #c25e00;
-$secondary-color-light: #ffbd45;
+$secondary-color: #004d40;
+$secondary-color-dark: #00251a;
+$secondary-color-light: #39796b;
 
 $background-color: #212529;
 $background-color-dark: #131618;
@@ -148,10 +148,28 @@ body {
   transform: translate(-50%, -50%);
 
   padding: 3rem;
-  border: 4px solid $secondary-color;
+  border: 4px solid $main-color;
   border-radius: 15px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transform: translate(-50%, 50%);
+    cursor: pointer;
+
+    &--exit {
+      width: 100%;
+      height: 100%;
+      stroke: $main-color-light;
+    }
+  }
 }
 
 .login {
@@ -160,11 +178,18 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 200px;
-  color: $secondary-color-light;
+  color: $main-color-light;
 
-  p {
+  h2 {
     font-size: 32px;
     letter-spacing: 3px;
+  }
+
+  p {
+    box-sizing: border-box;
+    padding-bottom: 6px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
   }
 
   &__input {
@@ -172,7 +197,7 @@ body {
     text-align: center;
     justify-content: center;
     background-color: $background-color-light;
-    border: 3px solid $secondary-color;
+    border: 3px solid $main-color;
     border-radius: 10px;
     width: 100%;
     height: 1.8rem;
@@ -180,11 +205,11 @@ body {
     outline: none;
 
     &:focus {
-      box-shadow: 0 0 1rem $secondary-color-dark;
+      box-shadow: 0 0 1rem $main-color-dark;
       transition: all 0.5s;
     }
     &--login {
-      color: green;
+      color: $main-color;
     }
 
     &::placeholder {
@@ -197,7 +222,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid $secondary-color;
+    border: 3px solid $main-color;
     border-radius: 5px;
     background-color: $background-color;
     cursor: pointer;
@@ -264,43 +289,57 @@ body {
   // width: 100%;
   margin: auto;
   background-color: $background-color-dark;
-}
 
-.post-description {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: $text-white;
-  // background-color: $main-color;
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  font-size: 20px;
-  font-weight: 300;
-  padding: 5px 5px;
-  text-overflow: ellipsis;
-  letter-spacing: 2px;
-
-  .added {
-    box-sizing: border-box;
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 100;
-    font-size: 10px;
-    width: auto;
+  &__description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $text-white;
+    // background-color: $main-color;
+    width: 100%;
     height: auto;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 5px 5px;
+    text-overflow: ellipsis;
     letter-spacing: 2px;
+
+    &--added {
+      box-sizing: border-box;
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: 100;
+      font-size: 10px;
+      width: auto;
+      height: auto;
+      letter-spacing: 2px;
+    }
   }
-}
 
-.like_bar {
-  display: flex;
-  align-items: center;
+  .like-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
-  p {
-    padding-left: 10px;
-    font-size: 14px;
-    color: #fff;
+    p {
+      padding-left: 10px;
+      font-size: 14px;
+    }
+    &__btns {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #fff;
+      font-size: 12px;
+    }
+
+    &__user {
+      padding-left: 10px;
+      font-size: 12px;
+      color: $background-color-light;
+    }
   }
 }
 
@@ -317,6 +356,7 @@ body {
 
 .btn-icon {
   stroke: #fff;
+  transition: 0s linear;
 }
 
 .btn-icon-plus:link,
@@ -325,7 +365,7 @@ body {
 
 .btn-icon-plus:hover,
 .btn-icon-plus:active {
-  stroke: $main-color-light;
+  stroke: #82c91e;
 }
 .btn-icon-minus:link,
 .btn-icon-minus:visited {
@@ -333,13 +373,19 @@ body {
 
 .btn-icon-minus:hover,
 .btn-icon-minus:active {
-  stroke: rgb(247, 41, 13);
+  stroke: #f03e3e;
 }
 
 @media screen and (max-width: 888px) {
   .main_content {
     width: 90%;
     flex-direction: column;
+  }
+  .content {
+    width: 100%;
+  }
+  .right_side_bar {
+    width: 100%;
   }
 }
 

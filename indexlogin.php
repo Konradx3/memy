@@ -20,29 +20,28 @@
         <meta name="Description" content="opis strony" />
         <!-- słowa kluczowe -->
         <meta name="Keywords" content="klucz1, klucz2, klucz3" />
-        <link rel="stylesheet" type="text/css" href="header.css">
-        <link rel="stylesheet" type="text/css" href="footer.css">
-        <link rel="stylesheet" type="text/css" href="maincontent.css">
-        <link rel="stylesheet" type="text/css" href="errory.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="errory.css">       
         <link rel="stylesheet" type="text/css" href="paginacja.css">
-        <link rel="stylesheet" type="text/css" href="posty.css">
         <title>HYC o podłoge</title>
     </head>
     <body>
 
         <!-- Nagłówek -->
         <div class="header">
-            <div class="inner_header">
-                <div class="logo_container">
-                <h1><strong>HYC</strong></h1></div>
-                    <ul class="navigation">
-                        <a href="index.php"><li>Strona główna</li></a>
-                     <!--   <a href="najlepsze.php"><li>Najlepsze</li></a> -->
-                        <a href="video.php"><li>Video</li></a>
-                        <a href="upload.php"><li>Dodaj obrazek</li></a>
-                        <a href="uploadvid.php"><li>Dodaj Video</li></a>
-                    </ul>
+            <div class="logo_container">
+                <h1>HYC</h1>
             </div>
+            <nav class="navigation">
+                <a href="index.php">Strona główna</a>
+                <!--   <a href="najlepsze.php"><li>Najlepsze</li></a> -->
+                <a href="video.php">Video</a>
+                <a href="upload.php">Dodaj obrazek</a>
+                <a href="uploadvid.php">Dodaj Video</a>
+            </nav>
         </div>
         <!-- Koniec nagłówka -->
 
@@ -50,7 +49,6 @@
 
         <div class="main_content">
             <section class="content">
-                <div class="oddzielnik"></div>
                 <div class="posty"> 
                 <?php
                                 $results_per_page = 10;
