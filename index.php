@@ -25,7 +25,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="stylesheet" type="text/css" href="errory.css">       
-        <link rel="stylesheet" type="text/css" href="paginacja.css">
         <title>HYC o podłoge</title>
     </head>
     <body>
@@ -53,15 +52,16 @@
                     <input type="text" name="login" class="login__input login__input--login" placeholder="Login"/>
                     <input type="password" name="haslo" class="login__input login__input--password" placeholder="Hasło"/>
                     <button type="submit" class="login__btn login__btn--login">Zaloguj się</button>
-                    <div>
-                    <p>Nie masz jeszcze konta?</p>
-                    <input type="button" onclick="location.href='rejestracja.php'" value="Zarejestruj się" class="login__btn"/>
-                    </div>
-                </form>
-                <?php 
+                    <?php 
                     if(isset($_SESSION['blad'])) echo $_SESSION['blad'];
                     unset($_SESSION['blad']);
                     ?>
+                    <div>
+                        <p>Nie masz jeszcze konta?</p>
+                        <input type="button" onclick="location.href='rejestracja.php'" value="Zarejestruj się" class="login__btn"/>
+                    </div>
+                </form>
+
                 <div class="login-modal__btn">
                     <svg xmlns="http://www.w3.org/2000/svg" 
                     class="login-modal__btn--exit" 
@@ -151,22 +151,20 @@
                                   }
                                   ?>
                                   <div class="center">
-                                  <ul class="pagination">
-                                  <li><a href="index.php?page=1">Pierwsza</a></li>
 
-                                  <?php 
-                                  for( $i = 1; $i <= $number_of_pages; $i++ ) {
+                                <div class="pagination">
+                                    <a href="index.php?page=1">Pierwsza</a>
 
-                                    $bold = ( $i == $page ) ? 'style="color: rgb(245, 157, 99); background-color: rgb(6, 65, 65);"' : '';
-                                    if( t1( $i, ( $page -3 ), ( $page + 3 ) ) ) {
-                            
-                                        echo '<li><a ' . $bold . ' href="index.php?page=' . $i . '">' . $i . '</a></li>';
-                            
+                                    <?php 
+                                    for( $i = 1; $i <= $number_of_pages; $i++ ) {
+                                        $bold = ( $i == $page ) ? 'class="pagination__on" ' : '';
+                                        if( t1( $i, ( $page -3 ), ( $page + 3 ) ) ) {       
+                                        echo '<a ' . $bold . ' href="index.php?page=' . $i . '">' . $i . '</a>';
+                                        }
                                     }
-                                }
-                                ?> 
-                                  <li><a href="index.php?page=<?php echo $number_of_pages; ?>">Ostatnia</a></li>
-                              </ul>
+                                    ?> 
+                                    <a href="index.php?page=<?php echo $number_of_pages; ?>">Ostatnia</a>
+                                </div>
                                 
                 </div>
 

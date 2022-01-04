@@ -87,19 +87,19 @@
                                   ?>
                                   <div class="center">
                                   <ul class="pagination">
-                                  <li><a href="index.php?page=1">Pierwsza</a></li>
+                                    <li><a href="index.php?page=1">Pierwsza</a></li>
 
-                                  <?php 
-                                  for( $i = 1; $i <= $number_of_pages; $i++ ) {
+                                        <?php 
+                                            for( $i = 1; $i <= $number_of_pages; $i++ ) {
 
-                                    $bold = ( $i == $page ) ? 'style="color: rgb(245, 157, 99); background-color: rgb(6, 65, 65);"' : '';
-                                    if( t1( $i, ( $page -3 ), ( $page + 3 ) ) ) {
+                                                $bold = ( $i == $page ) ? 'style="color: rgb(245, 157, 99); background-color: rgb(6, 65, 65);"' : '';
+                                                if( t1( $i, ( $page -3 ), ( $page + 3 ) ) ) {
                             
-                                        echo '<li><a ' . $bold . ' href="index.php?page=' . $i . '">' . $i . '</a></li>';
+                                                    echo '<li><a ' . $bold . ' href="index.php?page=' . $i . '">' . $i . '</a></li>';
                             
-                                    }
-                                }
-                                ?> 
+                                                }
+                                            }
+                                        ?> 
                                   <li><a href="index.php?page=<?php echo $number_of_pages; ?>">Ostatnia</a></li>
                               </ul>
                                 </div>
