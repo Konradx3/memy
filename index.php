@@ -171,48 +171,32 @@
                 </div>
 
             </section>
-            <div class="right_side_bar">
-
-                <div class="dodatki">
-                    <!-- <div class="logowanie login login__modal">
-                        <form action="login.php" method="post">
-                            <br />
-                            Login: <br /><input type="text" name="login"/><br/><br />
-                            Hasło: <br /><input type="password" name="haslo" /><br/><br/>
-                            <button type="submit">Zaloguj się</button>
-                            <input type="button" onclick="location.href='rejestracja.php'" value="Zarejestruj się" />
-                            <br /><br />
-                        </form>
-                        <?php 
-                       // if(isset($_SESSION['blad'])) echo $_SESSION['blad'];
-                       // unset($_SESSION['blad']);
-                        ?>
-                    </div> -->
-                    <div class="dodatek">
+            <div class="right-side-bar">
+ 
+                    <div class="right-side-bar__add">
                        <?php
                             echo '<img src="banery/mem2.jpg">';
                         ?>
                     </div>
 
-                    <div class="dodatek">
+                    <div class="right-side-bar__add">
                         <?php
                             echo '<img src="banery/mem1.jpg">';
                         ?>
                     </div>
 
-                    <div class="dodatek">
+                    <div class="right-side-bar__add">
                         <?php
                             echo '<img src="banery/mem2.jpg">';
                         ?>
                     </div>
 
-                    <div class="dodatek">
+                    <div class="right-side-bar__add">
                         <?php
                             echo '<img src="banery/mem1.jpg">';
                         ?>
                     </div>
 
-                </div>
             </div>
         </div>
 

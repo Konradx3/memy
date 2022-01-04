@@ -389,7 +389,58 @@ body {
   }
 }
 
+// PAGINATION
+
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+ul.pagination li {
+  display: inline;
+}
+
+ul.pagination li a {
+  color: white;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
+
+ul.pagination li a.active {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+ul.pagination li a:hover:not(.active) {
+  background-color: rgb(245, 157, 99);
+}
+
+div.center {
+  text-align: center;
+}
+
 // RIGHT COLUMN
+
+.right-side-bar {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 30%;
+  gap: 16px;
+
+  &__add {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+}
+
 .rejestracja_box {
   text-align: center;
   color: rgb(245, 157, 99);
@@ -419,26 +470,7 @@ h3 {
   padding: 6px 15px;
   box-sizing: border-box;
 }
-.main_content .right_side_bar {
-  height: 100%;
-  width: 30%;
-  display: block;
-  float: left;
-}
-.main_content .right_side_bar .logowanie {
-  text-align: center;
-  color: rgb(245, 157, 99);
-  font-size: 20px;
-  background-color: rgb(6, 65, 65);
-  width: auto;
-  height: auto;
-  border-radius: 5px;
-}
-.main_content .right_side_bar .dodatek {
-  display: block;
-  margin: auto;
-  text-align: center;
-}
+
 .main_content .content .upload {
   display: block;
   margin: auto;
