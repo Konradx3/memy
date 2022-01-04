@@ -4,7 +4,7 @@ session_start();
 if ((!isset($_POST['login'])) || (!isset($_POST['haslo'])))
 {
     header('Location: index.php');
-    exit();
+    // exit();
 }
 
 require_once "connect.php";
@@ -44,11 +44,14 @@ else
                     header('Location: indexlogin.php');
                 }
                 else {
-                    $_SESSION['blad'] = '<span style="color=red">Nieprawidłowy login lub hasło.</span>';
+                    $_SESSION['blad'] = '<span style="color= red">Nieprawidłowy login lub hasło.</span>
+                    <script type="text/javascript"> document.querySelector(".modal-background").classList.add("bg-active");</script>';
                     header('Location: index.php');
+                    
                 }
             } else {
-                $_SESSION['blad'] = '<span style="color=red">Nieprawidłowy login lub hasło.</span>';
+                $_SESSION['blad'] = '<span style="color=red">Nieprawidłowy login lub hasło.</span>
+                <script type="text/javascript"> document.querySelector(".modal-background").classList.add("bg-active");</script>';
                 header('Location: index.php');
             }
         }
