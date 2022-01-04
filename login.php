@@ -44,14 +44,20 @@ else
                     header('Location: indexlogin.php');
                 }
                 else {
-                    $_SESSION['blad'] = '<span style="color= red">Nieprawidłowy login lub hasło.</span>
-                    <script type="text/javascript"> document.querySelector(".modal-background").classList.add("bg-active");</script>';
+                    $_SESSION['blad'] = '<span class="login__error">Nieprawidłowy login lub hasło.</span>
+                    <script type="text/javascript"> 
+                        document.querySelector(".modal-background").classList.add("bg-active");
+                        window.setTimeout(function(){document.querySelector(".login__error").style.display = "none";},4000)
+                    </script>';
                     header('Location: index.php');
                     
                 }
             } else {
-                $_SESSION['blad'] = '<span style="color=red">Nieprawidłowy login lub hasło.</span>
-                <script type="text/javascript"> document.querySelector(".modal-background").classList.add("bg-active");</script>';
+                $_SESSION['blad'] = '<span class="login__error">Nieprawidłowy login lub hasło.</span>
+                <script type="text/javascript"> 
+                    document.querySelector(".modal-background").classList.add("bg-active");
+                    window.setTimeout(function(){document.querySelector(".login__error").style.display = "none";},4000)
+                </script>';
                 header('Location: index.php');
             }
         }
