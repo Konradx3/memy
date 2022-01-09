@@ -49,8 +49,8 @@
 
         <div class="main_content">
             <section class="content">
-                <div class="posty"> 
-                <?php
+
+                    <?php
                                 $results_per_page = 10;
                                 $polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -68,54 +68,83 @@
                                 
                                   $this_page_first_result = ($page-1)*$results_per_page;
                                   
-                                  $adres = $polaczenie->query("SELECT adresy, rozszerzenie, opis, addTime FROM grafiki ORDER BY `grafiki`.`addTime` DESC LIMIT $this_page_first_result, $results_per_page");
+                                  $adres = $polaczenie->query("SELECT adresy, rozszerzenie, opis, addTime, user FROM grafiki ORDER BY `grafiki`.`addTime` DESC LIMIT $this_page_first_result, $results_per_page");
                     
                                   while($res = mysqli_fetch_array($adres)){
                                       $opis = $res[2];
                                       $wysw = 'grafiki/'.$res[0].'.'.$res[1];
                                       $dataczas = $res[3];
+                                      $user =$res[4]
                                       ?><article>
                                       <div class="post">
-                                      <div class="opis"><?php echo $opis; ?>
-                                      <div class="dodanie" style="width: 15%; height: auto; float: right; font-size: 15px; text-align: center;"><?php echo $dataczas;?></div>
-                                      </div>
-                                      <div class="oddzielnikmaly"></div>
+                                        <div class="post__description"><?php echo $opis; ?>
+                                            <div class="post__description--added"><?php echo $dataczas;?></div>
+                                        </div>
+                                      <!-- <div class="oddzielnikmaly"></div> -->
                                       <div class="obrazek>"><?php echo '<img src="'.$wysw.'">'; ?></div>
-                                      </div><div class="oddzielnik"></div>
+
+                                      <div class="like-bar">
+                                          <div class="like-bar__btns">
+                                        <button class='btn'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                            class="btn-icon btn-icon-plus" 
+                                            fill="none" viewBox="0 0 24 24" 
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" 
+                                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                            class="btn-icon btn-icon-minus" 
+                                            fill="none" viewBox="0 0 24 24" 
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" 
+                                            stroke-linejoin="round" 
+                                            stroke-width="2" 
+                                            d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                            <p>Tutaj suma + i -</p>
+                                        </div>
+                                        <div class="like-bar__user">
+                                            Dodano przez: <?php echo $user;?>
+                                        </div>
+                                      </div>
+
                                       </article><?php
                                   }
                                   ?>
                                   <div class="center">
-                                  <ul class="pagination">
-                                    <li><a href="index.php?page=1">Pierwsza</a></li>
 
-                                        <?php 
-                                            for( $i = 1; $i <= $number_of_pages; $i++ ) {
+                                <div class="pagination">
+                                    <a href="index.php?page=1">Pierwsza</a>
 
-                                                $bold = ( $i == $page ) ? 'style="color: rgb(245, 157, 99); background-color: rgb(6, 65, 65);"' : '';
-                                                if( t1( $i, ( $page -3 ), ( $page + 3 ) ) ) {
-                            
-                                                    echo '<li><a ' . $bold . ' href="index.php?page=' . $i . '">' . $i . '</a></li>';
-                            
-                                                }
-                                            }
-                                        ?> 
-                                  <li><a href="index.php?page=<?php echo $number_of_pages; ?>">Ostatnia</a></li>
-                              </ul>
+                                    <?php 
+                                    for( $i = 1; $i <= $number_of_pages; $i++ ) {
+                                        $bold = ( $i == $page ) ? 'class="pagination__on" ' : '';
+                                        if( t1( $i, ( $page -3 ), ( $page + 3 ) ) ) {       
+                                        echo '<a ' . $bold . ' href="index.php?page=' . $i . '">' . $i . '</a>';
+                                        }
+                                    }
+                                    ?> 
+                                    <a href="index.php?page=<?php echo $number_of_pages; ?>">Ostatnia</a>
                                 </div>
+                                
                 </div>
-            <div class="oddzielnik"></div>
+
             </section>
-            <div class="right_side_bar">
-            <div class="oddzielnik"></div>
-                <div class="panel_uzytkownika"><br />
+            <div class="right-side-bar">
+                <div class="user-panel">
                     <?php
                     echo "<p>Witaj ".$_SESSION['user']."!</p>";
-                    ?><br />
+                    ?>
                     <p>W krótce dodamy tutaj więcej opcji,</p>
                     <p>Proszę o cierpliwość :)</p>
                     <p>Dzięki logowaniu możesz dodawać własne memy i pomóc w rozwijaniu portalu ;)</p><br />
-                    <a href="logout.php" style="color:white">Wyloguj się</a><br /><br />
+                    <a href="logout.php" class="user-panel__btn">Wyloguj się</a>
                 </div>
                 <div class="oddzielnik"></div>
                 <div class="dodatek">
