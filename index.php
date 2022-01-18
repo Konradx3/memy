@@ -25,6 +25,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="stylesheet" type="text/css" href="errory.css">       
+
+        <script defer src="script.js"></script>
         <title>HYC o podłoge</title>
     </head>
     <body>
@@ -219,6 +221,6 @@
         </div>
 
         <!-- Koniec stopki -->
-        <script src="script.js"></script>
+
     </body>
 </html>
