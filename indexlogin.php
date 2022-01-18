@@ -26,6 +26,7 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="stylesheet" type="text/css" href="errory.css">       
         <link rel="stylesheet" type="text/css" href="paginacja.css">
+
         <title>HYC o podłoge</title>
     </head>
     <body>
@@ -146,7 +147,7 @@
                     <p>Dzięki logowaniu możesz dodawać własne memy i pomóc w rozwijaniu portalu ;)</p><br />
                     <a href="logout.php" class="user-panel__btn">Wyloguj się</a>
                 </div>
-                <div class="oddzielnik"></div>
+
                 <div class="dodatek">
                        <?php
                             echo '<img src="banery/mem2.jpg">';

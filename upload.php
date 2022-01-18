@@ -16,28 +16,28 @@
         <meta name="Description" content="opis strony" />
         <!-- słowa kluczowe -->
         <meta name="Keywords" content="klucz1, klucz2, klucz3" />
-        <link rel="stylesheet" type="text/css" href="header.css">
-        <link rel="stylesheet" type="text/css" href="footer.css">
-        <link rel="stylesheet" type="text/css" href="maincontent.css">
-        <link rel="stylesheet" type="text/css" href="errory.css">
-        <link rel="stylesheet" type="text/css" href="paginacja.css">
-        <link rel="stylesheet" type="text/css" href="posty.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="stylesheet" type="text/css" href="errory.css">   
         <title>HYC o podłoge</title>
     </head>
     <body>
 
         <!-- Nagłówek -->
         <div class="header">
-            <div class="inner_header">
-                <div class="logo_container">
-                <h1><strong>HYC</strong></h1></div>
-                    <ul class="navigation">
-                        <a href="indexlogin.php"><li>Strona główna</li></a>
-                     <!--   <a href="najlepsze.php"><li>Najlepsze</li></a> -->
-                        <a href="video.php"><li>Video</li></a>
-                        <a href="upload.php"><li>Dodaj obrazek</li></a>
-                    </ul>
+            <div class="logo_container">
+                <h1>HYC</h1>
             </div>
+            <nav class="navigation">
+                <a href="index.php">Strona główna</a>
+                <!--   <a href="najlepsze.php"><li>Najlepsze</li></a> -->
+                <a href="video.php">Video</a>
+                <a href="upload.php">Dodaj obrazek</a>
+                <a href="uploadvid.php">Dodaj Video</a>
+            </nav>
         </div>
         <!-- Koniec nagłówka -->
 
@@ -45,53 +45,50 @@
 
         <div class="main_content">
             <section class="content">
-                <div class="oddzielnik"></div>
                 <div class="upload">
                     <form enctype="multipart/form-data" action="dodawanie.php" method="post" >
-                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" /><br />
-                        <span>Wpisz tytuł posta:</span><br />
-                        <input type="text" name="opis" maxlength="35" size="25"/><br /><br />
-                        <input type="file" name="nazwa_pliku"/><br /><br />
-                        <input type="submit" name="submit" value="Wyślij" /><br /><br />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="500000" />
+                        <p>Wpisz tytuł posta:</p>
+                        <input type="text" name="opis" maxlength="35" size="25"/>
+                        <input type="file" name="nazwa_pliku"/>
+                        <input  class="" type="submit" name="submit" value="Wyślij" />
                         <?php 
                         if(isset($_SESSION['zapis'])) echo $_SESSION['zapis'];
                         unset($_SESSION['zapis']);
                         ?>
                     </form>
                 </div>
-                <div class="oddzielnik"></div>
             </section>
-            <div class="oddzielnik"></div>
-            <div class="right_side_bar">
-            <div class="panel_uzytkownika"><br />
+
+            <div class="right-side-bar">
+                <div class="user-panel">
                     <?php
                     echo "<p>Witaj ".$_SESSION['user']."!</p>";
-                    ?><br />
+                    ?>
                     <p>W krótce dodamy tutaj więcej opcji,</p>
                     <p>Proszę o cierpliwość :)</p>
                     <p>Dzięki logowaniu możesz dodawać własne memy i pomóc w rozwijaniu portalu ;)</p><br />
-                    <a href="logout.php" style="color:white">Wyloguj się</a><br /><br />
+                    <a href="logout.php" class="user-panel__btn">Wyloguj się</a>
                 </div>
-                <div class="oddzielnik"></div>
-                <div class="dodatek">
-                       <?php
-                            echo '<img src="banery/mem1.jpg">';
-                        ?>
-                    </div>
-                    <div class="oddzielnik"></div>
-                    <div class="dodatek">
+
+                
+                    <div class="right-side-bar__add">
                         <?php
                             echo '<img src="banery/mem2.jpg">';
                         ?>
                     </div>
-                    <div class="oddzielnik"></div>
-                    <div class="dodatek">
+                    <div class="right-side-bar__add"> 
+                       <?php
+                            echo '<img src="banery/mem1.jpg">';
+                        ?>
+                    </div>
+
+                    <div class="right-side-bar__add">
                         <?php
                             echo '<img src="banery/mem1.jpg">';
                         ?>
                     </div>
-                    <div class="oddzielnik"></div>
-                    <div class="dodatek">
+                    <div class="right-side-bar__add">
                         <?php
                             echo '<img src="banery/mem2.jpg">';
                         ?>
